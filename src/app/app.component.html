@@ -1,13 +1,3 @@
-<h1>
-  {{title}} <button type="button" class="btn btn-primary" ([disabled])="isStarted()">Start Spel</button>
-</h1>
-<div id="boardLayout">
-  <img src="{{boardImagePath}}" />
-  <img src="{{dice1Image}}" id="dice1" [style.top.px]="top1" (click)="roleDices()" />
-  <img src="{{dice2Image}}" id="dice2" [style.top.px]="top2" (click)="roleDices()" />
-</div>
-<h3>Switch Button (toggle)</h3>
-<p class="card card-block card-header"><b>{{switchButtonModel}}</b></p>
-<button type="button" class="btn btn-primary" [(ngModel)]="switchButtonModel" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">Switch Button</button>
-<hr />
-<a href="https://embed.plnkr.co/C2n8kBV5z3TXXut699bm/">goede ng plunk</a>
+<app-game-info></app-game-info>
+<app-play-board></app-play-board>
+<app-game-play></app-game-play>
