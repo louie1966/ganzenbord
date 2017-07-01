@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameInfoComponent } from '../game-info/game-info.component';
 
 @Component({
   selector: 'app-play-board',
@@ -16,6 +17,7 @@ export class PlayBoardComponent implements OnInit {
   diceTop2: number;
   switchButtonModel: number;
 
+
   constructor() {
     this.boardImagePath = '../assets/img/ganzenbord.png';
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
@@ -31,14 +33,23 @@ export class PlayBoardComponent implements OnInit {
     return false;
   }
 
-  roleDices() {
+  public roleDices() {
     let dice1 = this.rndm(1, 6);
     let dice2 = this.rndm(1, 6);
-    let count = dice1 + dice2;
+    let count = (dice1 + dice2);
     this.dice1Image = `../assets/img/${dice1}.png`;
     this.dice2Image = `../assets/img/${dice2}.png`;
     this.diceTop1 = this.rndm(290, 350);
     this.diceTop2 = this.rndm(290, 350);
+    let vertelHoeveel = 'Het is ' + count;
+    let message;
+    if (dice1 != dice2) {
+      message = `Je hebt ${count} gegooid!`;
+    }
+    else {
+      message = `Je hebt ${count} én dubbel gegooid!`;
+    }
+    alert(message);
   }
 
   rndm = (min, max) =>
