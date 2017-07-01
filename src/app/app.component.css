@@ -1,0 +1,14 @@
+#dice1 {
+    z-index: 1;
+    position: absolute;
+    visibility: visible;
+    left: 260px;   
+}
+
+#dice2 {
+    z-index: 1;
+    position: absolute;
+    visibility: visible;
+    left: 320px;    
+}
+
