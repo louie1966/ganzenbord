@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-game-info',
@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class GameInfoComponent {
   private title: string;
+
+  @Input()
   public infoMessage: string;
 
   constructor() {
     this.title = 'Ganzenbordspel';
-    this.infoMessage = 'Veel plezier!';
   }
 }

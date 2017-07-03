@@ -6,6 +6,8 @@ import { GameInfoComponent } from '../game-info/game-info.component';
   templateUrl: './play-board.component.html',
   styleUrls: ['./play-board.component.css']
 })
+
+
 export class PlayBoardComponent implements OnInit {
 
   boardImagePath: string;
@@ -15,15 +17,17 @@ export class PlayBoardComponent implements OnInit {
   dice2Position: string;
   diceTop1: number;
   diceTop2: number;
+  gameMessage: string;
+
 
   constructor() {
     this.boardImagePath = '../assets/img/ganzenbord.png';
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.dice2Image = `../assets/img/${this.rndm(1, 6)}.png`;
-     }
-
-  ngOnInit() {
+    this.gameMessage = `Veel plezier! Vul even je naam in. Click op een dobbelsteen.`;
   }
+
+  ngOnInit() { }
 
 
   isStarted() {
@@ -44,9 +48,9 @@ export class PlayBoardComponent implements OnInit {
       message = `Je hebt ${count} gegooid!`;
     }
     else {
-      message = `Je hebt ${count} én dubbel gegooid!`;
+      message = `Je hebt ${count} én dubbel gegooid! Je mag nog een keer!`;
     }
-    alert(message);
+    this.gameMessage = message;
   }
 
   rndm = (min, max) =>
