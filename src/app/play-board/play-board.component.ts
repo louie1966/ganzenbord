@@ -15,15 +15,12 @@ export class PlayBoardComponent implements OnInit {
   dice2Position: string;
   diceTop1: number;
   diceTop2: number;
-  switchButtonModel: number;
-
 
   constructor() {
     this.boardImagePath = '../assets/img/ganzenbord.png';
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.dice2Image = `../assets/img/${this.rndm(1, 6)}.png`;
-    this.switchButtonModel = 0;
-  }
+     }
 
   ngOnInit() {
   }
