@@ -20,11 +20,13 @@ export class PlayBoardComponent implements OnInit {
   gameMessage: string;
 
 
+
   constructor() {
     this.boardImagePath = '../assets/img/ganzenbord.png';
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.dice2Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.gameMessage = `Veel plezier! Vul even je naam in. Click op een dobbelsteen.`;
+
   }
 
   ngOnInit() { }
