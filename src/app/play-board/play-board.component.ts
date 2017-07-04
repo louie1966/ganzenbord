@@ -18,6 +18,7 @@ export class PlayBoardComponent implements OnInit {
   diceTop1: number;
   diceTop2: number;
   gameMessage: string;
+  person: string;
 
 
 
