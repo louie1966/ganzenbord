@@ -6,13 +6,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PlayBoardComponent } from './play-board/play-board.component';
 import { GameInfoComponent } from './game-info/game-info.component';
+import { PlayerListComponent } from './player-list/player-list.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
+import { PlayerComponent } from './player/player.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayBoardComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    PlayerListComponent,
+    PlayerFormComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

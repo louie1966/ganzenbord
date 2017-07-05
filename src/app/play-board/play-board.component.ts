@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameInfoComponent } from '../game-info/game-info.component';
 
+
 @Component({
   selector: 'app-play-board',
   templateUrl: './play-board.component.html',
@@ -18,7 +19,6 @@ export class PlayBoardComponent implements OnInit {
   diceTop1: number;
   diceTop2: number;
   gameMessage: string;
-  person: string;
 
 
 
@@ -27,7 +27,6 @@ export class PlayBoardComponent implements OnInit {
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.dice2Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.gameMessage = `Veel plezier! Vul even je naam in. Click op een dobbelsteen.`;
-
   }
 
   ngOnInit() { }
