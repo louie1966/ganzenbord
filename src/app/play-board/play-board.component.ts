@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { GameInfoComponent } from '../game-info/game-info.component';
-
+import { Player } from '../player';
+import { PlayerDataService } from '../player-data.service';
 
 @Component({
-  selector: 'app-play-board',
+  selector: 'play-board',
   templateUrl: './play-board.component.html',
-  styleUrls: ['./play-board.component.css']
+  styleUrls: ['./play-board.component.css'],
+  providers: [PlayerDataService]
 })
 
 
@@ -20,13 +22,33 @@ export class PlayBoardComponent implements OnInit {
   diceTop2: number;
   gameMessage: string;
 
+  newPlayer: Player = new Player();
 
 
-  constructor() {
+  constructor(private playerDataService: PlayerDataService) {
     this.boardImagePath = '../assets/img/ganzenbord.png';
     this.dice1Image = `../assets/img/${this.rndm(1, 6)}.png`;
     this.dice2Image = `../assets/img/${this.rndm(1, 6)}.png`;
-    this.gameMessage = `Veel plezier! Vul even je naam in. Click op een dobbelsteen.`;
+    this.gameMessage = `Veel plezier! Vul even de namen in en click op een dobbelsteen.`;
+  }
+
+  addPlayer() {
+    this.playerDataService.addPlayer(this.newPlayer);
+
+    this.gameMessage = `Speler ${this.newPlayer.name} is ingevoerd, ga spelen of voer nog een speler in.`
+    this.newPlayer = new Player();
+  }
+
+  togglePlayerComplete(player) {
+    this.playerDataService.togglePlayerComplete(player);
+  }
+
+  removePlayer(player) {
+    this.playerDataService.deletePlayerById(player.id);
+  }
+
+  get players() {
+    return this.playerDataService.getAllPlayers();
   }
 
   ngOnInit() { }
@@ -57,4 +79,6 @@ export class PlayBoardComponent implements OnInit {
 
   rndm = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
+
+
 }

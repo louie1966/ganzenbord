@@ -6,9 +6,27 @@
   <img src="{{dice1Image}}" id="dice1" [style.top.px]="diceTop1" (click)="roleDices()" />
   <img src="{{dice2Image}}" id="dice2" [style.top.px]="diceTop2" (click)="roleDices()" />
 </div>
-<div>
-  <player-list></player-list>
-</div>
+<section class="ganzenbordapp">
+  <header class="header">
+    <h3>Spelers</h3>
+    <input class="new-player" placeholder="Voer een speler in (+ enter)" 
+    autofocus="" [(ngModel)]="newPlayer.name" (keyup.enter)="addPlayer()">
+  </header>
+  <section class="main" *ngIf="players.length > 0">
+    <ul class="player-list">
+      <li *ngFor="let player of players" [class.completed]="player.complete">
+        <div class="view">
+          <input class="toggle" type="checkbox" (click)="togglePlayerComplete(player)" [checked]="player.active">
+          <label>{{player.name}}</label>
+          <button class="destroy" (click)="removePlayer(player)"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer class="footer" *ngIf="players.length > 0">
+    <span class="player-count"><strong>{{players.length}}</strong> {{players.length == 1 ? 'speler doet' : 'spelers doen'}} mee!</span>
+  </footer>
+</section>
 <div>
   <a hidden href="https://embed.plnkr.co/C2n8kBV5z3TXXut699bm/">goede ng plunk</a>
 </div>
