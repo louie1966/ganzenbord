@@ -35,7 +35,7 @@ export class PlayBoardComponent implements OnInit {
   addPlayer() {
     this.playerDataService.addPlayer(this.newPlayer);
 
-    this.gameMessage = `Speler ${this.newPlayer.name} is ingevoerd, ga spelen of voer nog een speler in.`
+    this.gameMessage = `Speler ${this.players.length}, ${this.newPlayer.name} is ingevoerd, ga spelen of voer nog een speler in.`
     this.newPlayer = new Player();
   }
 
